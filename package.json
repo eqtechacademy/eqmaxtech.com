@@ -1,0 +1,19 @@
+{
+  "name": "eqmax-theme",
+  "version": "0.1.0",
+  "description": "EQMax Tech Solutions WordPress theme",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -k -n css,js \"npm:dev:css\" \"npm:dev:js\"",
+    "dev:css": "tailwindcss -i ./src/main.css -o ./assets/css/main.css --watch",
+    "dev:js": "esbuild src/main.js --bundle --outfile=assets/js/main.js --watch",
+    "build": "npm run build:css && npm run build:js",
+    "build:css": "tailwindcss -i ./src/main.css -o ./assets/css/main.css --minify",
+    "build:js": "esbuild src/main.js --bundle --minify --outfile=assets/js/main.js"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "esbuild": "^0.24.0",
+    "tailwindcss": "^3.4.17"
+  }
+}
